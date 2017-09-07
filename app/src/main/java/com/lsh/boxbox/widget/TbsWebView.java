@@ -15,10 +15,10 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
-import static com.lsh.boxbox.R.id.webView;
 
 /**
  * Created by LSH on 2017/9/6.
+ * 自定义WebView 继承自TBS的WebView
  */
 
 public class TbsWebView extends WebView {
@@ -41,7 +41,7 @@ public class TbsWebView extends WebView {
 
         getSettings().setJavaScriptEnabled(true);
 
-        progressBar=new ProgressBar(context,null,android.R.attr.progressBarStyleHorizontal);
+        progressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
         progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, progressHeight, 0, 0));
 
         Drawable drawable = context.getResources().getDrawable(R.drawable.progress_bar_states);
@@ -61,7 +61,6 @@ public class TbsWebView extends WebView {
         setWebChromeClient(new WVChromeClient());
         setWebViewClient(new WVClient());
     }
-
 
 
     //进度显示
@@ -90,7 +89,6 @@ public class TbsWebView extends WebView {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
             //在当前Activity打开
             view.loadUrl(url);
             return true;
@@ -123,6 +121,7 @@ public class TbsWebView extends WebView {
     //进度回调接口
     public interface onWebViewListener {
         void onProgressChange(WebView view, int newProgress);
+
         void onPageFinish(WebView view);
     }
 

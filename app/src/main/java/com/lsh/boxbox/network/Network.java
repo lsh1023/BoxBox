@@ -1,6 +1,7 @@
 package com.lsh.boxbox.network;
 
-import android.util.Log;
+
+import com.lsh.boxbox.utils.AppLogMessageMgr;
 
 import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;
@@ -18,7 +19,6 @@ public class Network {
 
     private static WechatApi mWechatApi;
 
-
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
@@ -33,7 +33,7 @@ public class Network {
                     .build();
             mWechatApi = retrofit.create(WechatApi.class);
         }
-        Log.e("oooooo","getwechatApi");
+        AppLogMessageMgr.e("getWechatApi","ok");
         return mWechatApi;
     }
 

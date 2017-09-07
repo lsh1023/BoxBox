@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,10 +19,12 @@ import com.just.library.AgentWeb;
 import com.just.library.ChromeClientCallbackManager;
 import com.lsh.boxbox.R;
 import com.lsh.boxbox.base.BaseCommonActivity;
-import com.lsh.boxbox.model.WechatItem;
 import com.lsh.boxbox.utils.AppToastMgr;
 import com.umeng.analytics.MobclickAgent;
 
+/**
+ * 利用AgentView加载H5页面，可以播放音视频
+ */
 public class WebViewUI extends BaseCommonActivity {
 
     protected AgentWeb mAgentWeb;
@@ -32,7 +33,6 @@ public class WebViewUI extends BaseCommonActivity {
     private TextView mTitleTextView;
 
     private String imgUrl, url;
-    WechatItem.ResultBean.ListBean mWechat;
 
     @Override
     public void initContentView() {
@@ -41,13 +41,11 @@ public class WebViewUI extends BaseCommonActivity {
 
     @Override
     public void initView() {
-        mWechat = getIntent().getParcelableExtra("wechat");
         imgUrl = getIntent().getStringExtra("imgUrl");
         url = getIntent().getStringExtra("url");
         mLinearLayout = (LinearLayout) this.findViewById(R.id.container);
         mToolbar = (Toolbar) this.findViewById(R.id.toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
-        mToolbar.setTitle("");
         mTitleTextView = (TextView) this.findViewById(R.id.toolbar_title);
         this.setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
@@ -84,7 +82,6 @@ public class WebViewUI extends BaseCommonActivity {
 
     }
 
-
     private WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -107,7 +104,6 @@ public class WebViewUI extends BaseCommonActivity {
     private WebChromeClient mWebChromeClient = new WebChromeClient() {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
-            Log.i("LSH", "progress:" + newProgress);
         }
     };
 
@@ -152,7 +148,6 @@ public class WebViewUI extends BaseCommonActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i("LSH", "result:" + requestCode + " result:" + resultCode);
         mAgentWeb.uploadFileResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }

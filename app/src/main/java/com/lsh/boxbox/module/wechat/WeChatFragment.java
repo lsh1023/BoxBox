@@ -23,6 +23,7 @@ import com.lsh.boxbox.config.Const;
 import com.lsh.boxbox.model.WechatItem;
 import com.lsh.boxbox.module.WeChatDetailActivity;
 import com.lsh.boxbox.network.Network;
+import com.lsh.boxbox.utils.AppToastMgr;
 import com.lsh.boxbox.utils.PixelUtil;
 import com.lsh.boxbox.utils.SPUtils;
 import com.orhanobut.logger.Logger;
@@ -71,6 +72,7 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
     public WeChatFragment() {
     }
 
+    //观察者模式
     Observer<WechatItem> mObserver = new Observer<WechatItem>() {
         @Override
         public void onCompleted() {
@@ -123,7 +125,7 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
         initFAB();
         initSwipeRefresh();
         initEmptyView();
-        initRecyclerWechat();
+        initRecyclerWeChat();
         onLoading();
         requestData();
     }
@@ -144,7 +146,6 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
         mSwiperWechat.setOnRefreshListener(this);
         mSwiperWechat.setColorSchemeColors(Color.rgb(47, 223, 189));
         mSwiperWechat.setEnabled(false);
-        Log.e("lisj","刷新了");
     }
 
     @Override
@@ -153,8 +154,6 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
         mRefreshMark = true;
         mPageMark = 1;
         requestData();
-        Log.e("LSH","刷新了");
-
     }
 
     private void initEmptyView() {
@@ -165,7 +164,6 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
         notDataView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onRequestAgain();
                 requestData();
             }
         });
@@ -177,13 +175,12 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
         errorView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onRequestAgain();
                 requestData();
             }
         });
     }
 
-    private void initRecyclerWechat() {
+    private void initRecyclerWeChat() {
         mRecyclerWechat.setLayoutManager(new GridLayoutManager(getContext().getApplicationContext(), 2));
         mListBeanList = new ArrayList<>();
         boolean isNotLoad = (boolean) SPUtils.get(getContext(), Const.SLLMS, false);
@@ -217,7 +214,7 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
                         getString(R.string.transition_wechat_img)
                 );
 
-                ActivityCompat.startActivity((Activity) getContext(), intent, optionsCompat.toBundle());
+                ActivityCompat.startActivity(getContext(), intent, optionsCompat.toBundle());
             }
         });
 
@@ -266,7 +263,7 @@ public class WeChatFragment extends BaseFragment implements SwipeRefreshLayout.O
             }
         } else {
             if (mWechatItemAdapter.isLoading()) {
-                Toast.makeText(getContext(), R.string.load_more_error, Toast.LENGTH_SHORT).show();
+                AppToastMgr.ToastShortCenter(getContext(), String.valueOf(R.string.load_more_error));
                 mWechatItemAdapter.loadMoreFail();
             } else {
                 mWechatItemAdapter.setEmptyView(notDataView);
