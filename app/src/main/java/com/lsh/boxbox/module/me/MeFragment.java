@@ -95,14 +95,14 @@ public class MeFragment extends BaseFragment {
      */
     private void initUserInfo() {
         String username = (String) SPUtils.get(getContext(), Const.USER_NAME, "");
-        String userheader = (String) SPUtils.get(getContext(), Const.USER_HEADER, "");
-        String userDesc = (String) SPUtils.get(getContext(), Const.USER_NAME, "我愿做你世界里的太阳，给你温暖。");
+        String userHeader = (String) SPUtils.get(getContext(), Const.USER_HEADER, "");
+        String userDesc = (String) SPUtils.get(getContext(), Const.USER_GEYAN, "我愿做你世界里的太阳，给你温暖。");
 
         if (!TextUtils.isEmpty(username)) {
             usernameMe.setText(username);
         }
-        if (!TextUtils.isEmpty(userheader)) {
-            Glide.with(getContext()).load(new File(userheader)).into(userHeadMe);
+        if (!TextUtils.isEmpty(userHeader)) {
+            Glide.with(getContext()).load(new File(userHeader)).into(userHeadMe);
         }
 
         if (!TextUtils.isEmpty(userDesc)) {
@@ -130,7 +130,6 @@ public class MeFragment extends BaseFragment {
             case R.id.ll_setting_me:
                 break;
             case R.id.fab:
-                AppToastMgr.ToastShortCenter(getContext(), "个人信息");
                 Intent intent = new Intent(getContext(), UserInfoActivity.class);
                 ActivityOptionsCompat optionCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
                         getActivity(),
@@ -169,6 +168,5 @@ public class MeFragment extends BaseFragment {
     public String getUmengFragmentName() {
         return getContext().getClass().getSimpleName() + "-" + this.getClass().getSimpleName();
     }
-
 
 }

@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.github.pwittchen.reactivenetwork.library.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.ReactiveNetwork;
-import com.lsh.boxbox.network.Network;
 
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;

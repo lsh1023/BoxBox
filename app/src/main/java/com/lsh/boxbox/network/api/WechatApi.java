@@ -1,4 +1,4 @@
-package com.lsh.boxbox.network;
+package com.lsh.boxbox.network.api;
 
 import com.lsh.boxbox.model.WechatItem;
 
