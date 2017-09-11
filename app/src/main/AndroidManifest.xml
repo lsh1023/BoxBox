@@ -53,7 +53,8 @@
             android:name=".module.WeChatDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".module.me.UserInfoActivity" />
-        <activity android:name=".module.me.AddressActivity"></activity>
+        <activity android:name=".module.me.AddressActivity" />
+        <activity android:name=".module.me.calendar.CalendarActivity"></activity>
     </application>
 
 </manifest>

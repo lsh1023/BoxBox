@@ -5,4 +5,5 @@ package com.lsh.boxbox.module.me.weather;
  */
 
 public class ApiManager {
+
 }

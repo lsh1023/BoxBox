@@ -2,7 +2,6 @@ package com.lsh.boxbox.module.me;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -20,7 +19,7 @@ import com.lsh.boxbox.R;
 import com.lsh.boxbox.base.BaseFragment;
 import com.lsh.boxbox.config.Const;
 import com.lsh.boxbox.model.RefreshMeFragmentEvent;
-import com.lsh.boxbox.utils.AppToastMgr;
+import com.lsh.boxbox.module.me.calendar.CalendarActivity;
 import com.lsh.boxbox.utils.SPUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -118,6 +117,7 @@ public class MeFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_calendar_me:
+                startActivity(new Intent(getContext(),CalendarActivity.class));
                 break;
             case R.id.ll_weather_me:
                 break;
