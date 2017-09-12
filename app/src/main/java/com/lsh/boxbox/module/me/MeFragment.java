@@ -120,10 +120,13 @@ public class MeFragment extends BaseFragment {
                 startActivity(new Intent(getContext(),CalendarActivity.class));
                 break;
             case R.id.ll_weather_me:
+
                 break;
             case R.id.ll_led_me:
+                startActivity(new Intent(getContext(),LEDActivity.class));
                 break;
             case R.id.ll_me_flashlight:
+                startActivity(new Intent(getContext(),FlashLightActivity.class));
                 break;
             case R.id.ll_code_me:
                 break;

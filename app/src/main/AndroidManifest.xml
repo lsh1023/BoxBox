@@ -54,7 +54,9 @@
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".module.me.UserInfoActivity" />
         <activity android:name=".module.me.AddressActivity" />
-        <activity android:name=".module.me.calendar.CalendarActivity"></activity>
+        <activity android:name=".module.me.calendar.CalendarActivity" />
+        <activity android:name=".module.me.LEDActivity" />
+        <activity android:name=".module.me.FlashLightActivity"></activity>
     </application>
 
 </manifest>

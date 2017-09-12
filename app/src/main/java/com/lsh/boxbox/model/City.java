@@ -10,6 +10,7 @@ import java.util.List;
  */
 
 public class City implements Parcelable {
+
     private List<HeWeather5Bean> HeWeather5;
 
     public List<HeWeather5Bean> getHeWeather5() {
@@ -223,4 +224,5 @@ public class City implements Parcelable {
             return new City[size];
         }
     };
+
 }
