@@ -32,7 +32,8 @@ public class WebViewUI extends BaseCommonActivity {
     private Toolbar mToolbar;
     private TextView mTitleTextView;
 
-    private String imgUrl, url;
+    private String url;
+    private String title;
 
     @Override
     public void initContentView() {
@@ -41,12 +42,13 @@ public class WebViewUI extends BaseCommonActivity {
 
     @Override
     public void initView() {
-        imgUrl = getIntent().getStringExtra("imgUrl");
+        title = getIntent().getStringExtra("title");
         url = getIntent().getStringExtra("url");
         mLinearLayout = (LinearLayout) this.findViewById(R.id.container);
         mToolbar = (Toolbar) this.findViewById(R.id.toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
         mTitleTextView = (TextView) this.findViewById(R.id.toolbar_title);
+        mTitleTextView.setText(title);
         this.setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,13 +59,11 @@ public class WebViewUI extends BaseCommonActivity {
             }
         });
 
-        long p = System.currentTimeMillis();
-
         mAgentWeb = AgentWeb.with(this)//
                 .setAgentWebParent(mLinearLayout, new LinearLayout.LayoutParams(-1, -1))//
                 .useDefaultIndicator()//
                 .defaultProgressBarColor()
-                .setReceivedTitleCallback(mCallback)
+//                .setReceivedTitleCallback(mCallback)
                 .setWebChromeClient(mWebChromeClient)
                 .setWebViewClient(mWebViewClient)
                 .setSecutityType(AgentWeb.SecurityType.strict)
@@ -72,9 +72,6 @@ public class WebViewUI extends BaseCommonActivity {
                 .go(getUrl());
 
         mAgentWeb.getLoader().loadUrl(getUrl());
-
-        long n = System.currentTimeMillis();
-        Log.i("LSH", "init used time:" + (n - p));
     }
 
     @Override

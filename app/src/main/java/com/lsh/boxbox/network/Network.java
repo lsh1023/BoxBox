@@ -1,8 +1,8 @@
 package com.lsh.boxbox.network;
 
 
-import com.lsh.boxbox.model.City;
 import com.lsh.boxbox.network.api.CityApi;
+import com.lsh.boxbox.network.api.NewsApi;
 import com.lsh.boxbox.network.api.WechatApi;
 import com.lsh.boxbox.utils.AppLogMessageMgr;
 
@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by LSH on 2017/8/29.
+ * 网络访问管理类
  */
 
 public class Network {
@@ -22,6 +23,7 @@ public class Network {
 
     private static WechatApi mWechatApi;
     private static CityApi sCityApi;
+    private static NewsApi sNewsApi;
 
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
@@ -37,7 +39,7 @@ public class Network {
                     .build();
             mWechatApi = retrofit.create(WechatApi.class);
         }
-        AppLogMessageMgr.e("getWechatApi", "ok");
+        AppLogMessageMgr.e("getWechatApi");
         return mWechatApi;
     }
 
@@ -51,7 +53,22 @@ public class Network {
                     .build();
             sCityApi = retrofit.create(CityApi.class);
         }
+        AppLogMessageMgr.e("getCityApi");
         return sCityApi;
+    }
+
+    public static NewsApi getNewsApi() {
+        if (sNewsApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl(ROOT_URL)
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sNewsApi = retrofit.create(NewsApi.class);
+        }
+        AppLogMessageMgr.e("getNewsApi");
+        return sNewsApi;
     }
 
 }

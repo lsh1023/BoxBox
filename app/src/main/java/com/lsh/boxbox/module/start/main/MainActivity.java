@@ -95,7 +95,7 @@ public class MainActivity extends BaseCustomActivity {
 
         String startPage = WECHAT_FRAGMENT;
         String s = (String) SPUtils.get(this, Const.OPENNEWS, "nomagic");
-        if (s.equals("magicopen")) {
+        if (s.equals("nomagic")) {
             sRecommendWechat.setVisibility(View.VISIBLE);
             startPage = NEWS_FRAGMENT;
         }
