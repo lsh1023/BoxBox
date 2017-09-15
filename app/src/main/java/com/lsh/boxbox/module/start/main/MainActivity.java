@@ -16,9 +16,11 @@ import com.lsh.boxbox.app.BaseApplication;
 import com.lsh.boxbox.base.BaseCustomActivity;
 import com.lsh.boxbox.config.Const;
 import com.lsh.boxbox.config.StatusBarCompat;
+import com.lsh.boxbox.model.RefreshNewsFragmentEvent;
 import com.lsh.boxbox.module.find.FindFragment;
 import com.lsh.boxbox.module.me.MeFragment;
 import com.lsh.boxbox.module.news.NewsFragment;
+import com.lsh.boxbox.module.news.news_category.CategoryActivity;
 import com.lsh.boxbox.module.wechat.WeChatFragment;
 import com.lsh.boxbox.update.AppUtils;
 import com.lsh.boxbox.utils.SPUtils;
@@ -28,10 +30,15 @@ import com.lsh.boxbox.widget.TabBar_Mains;
 import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
-
+/**
+ * APP首页
+ */
 public class MainActivity extends BaseCustomActivity {
 
     public MeFragment mMeFragment;
@@ -112,9 +119,8 @@ public class MainActivity extends BaseCustomActivity {
 //        }
 
         //订阅事件
-//        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
     }
-
 
 
     private void switchToFragment(String index) {
@@ -264,6 +270,11 @@ public class MainActivity extends BaseCustomActivity {
         }
     }
 
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void OnRefreshNewsFragmentEvent(RefreshNewsFragmentEvent event) {
+        startActivityForResult(new Intent(MainActivity.this, CategoryActivity.class), event.getMark_code());
+    }
 
     @Override
     protected void onDestroy() {

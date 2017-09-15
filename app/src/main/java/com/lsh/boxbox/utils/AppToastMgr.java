@@ -149,7 +149,6 @@ public class AppToastMgr {
      */
     public static void ToastShortCenter(Context context, String message) {
         if (context != null) {
-
             Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();

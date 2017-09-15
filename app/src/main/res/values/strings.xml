@@ -24,5 +24,12 @@
     <string name="yourSay">一句话描述</string>
     <string name="address">居住地</string>
     <string name="save">保存</string>
+    <string name="news_category">新闻频道</string>
+    <string name="my_cahnnel">我的频道</string>
+    <string name="edit">编辑</string>
+    <string name="tip_drag">长按编辑,拖拽排序</string>
+    <string name="finish">完成</string>
+    <string name="other_channel">更多频道</string>
+    <string name="set_success">设置成功</string>
 
 </resources>

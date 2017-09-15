@@ -37,4 +37,5 @@
     <color name="theme_secondary_text_inverted">#8affffff</color>
 
     <color name="bg_text_wechat_item">#88000000</color>
+    <color name="tip">#999c9c9c</color>
 </resources>

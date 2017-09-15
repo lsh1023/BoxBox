@@ -20,7 +20,6 @@ import com.lsh.boxbox.module.WebViewUI;
 import com.lsh.boxbox.network.Network;
 import com.lsh.boxbox.utils.PixelUtil;
 import com.lsh.boxbox.utils.SPUtils;
-import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,7 @@ public class DefaultStyleFragment extends BaseFragment implements SwipeRefreshLa
 
     private static final String ARG_PARAM1 = "param1";
     //    private static final String ARG_PARAM2 = "param2";
-    private static final String JUHE_NEWS_APP_KEY = "509e1319694893a9df49d9b6ea7b2ed0";
+    private static final String JUHE_NEWS_APP_KEY = "c4dc2a841ac656d290a783932a55c283";
 
     // 当前列表的item个数
     int mCurrentCounter;

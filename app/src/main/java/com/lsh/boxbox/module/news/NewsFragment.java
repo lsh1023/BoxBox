@@ -16,6 +16,7 @@ import com.lsh.boxbox.base.BaseFragment;
 import com.lsh.boxbox.config.Const;
 import com.lsh.boxbox.database.CategoryDao;
 import com.lsh.boxbox.model.CategoryEntity;
+import com.lsh.boxbox.model.RefreshNewsFragmentEvent;
 import com.lsh.boxbox.module.me.MeFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -177,7 +178,7 @@ public class NewsFragment extends BaseFragment {
 
     @OnClick(R.id.add_btn)
     public void onClick() {
-//        EventBus.getDefault().post(new RefreshNewsFragmentEvent(Const.NEWSFRAGMENT_CATEGORYACTIVITY_REQUESTCODE));
+        EventBus.getDefault().post(new RefreshNewsFragmentEvent(Const.NEWSFRAGMENT_CATEGORYACTIVITY_REQUESTCODE));
     }
 
     @Override
