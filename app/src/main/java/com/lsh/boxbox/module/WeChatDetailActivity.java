@@ -43,7 +43,6 @@ public class WeChatDetailActivity extends BaseCommonActivity {
     FloatingActionButton fab;
 
     //TBS浏览器
-//    com.tencent.smtt.sdk.WebView webView;
     TbsWebView webView;
 
     WechatItem.ResultBean.ListBean mWechat;

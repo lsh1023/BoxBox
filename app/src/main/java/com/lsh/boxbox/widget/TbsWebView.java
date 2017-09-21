@@ -15,12 +15,10 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
-
 /**
  * Created by LSH on 2017/9/6.
  * 自定义WebView 继承自TBS的WebView
  */
-
 public class TbsWebView extends WebView {
 
     private ProgressBar progressBar;
@@ -30,7 +28,6 @@ public class TbsWebView extends WebView {
         super(context);
         initView(context);
     }
-
 
     public TbsWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -121,9 +118,7 @@ public class TbsWebView extends WebView {
     //进度回调接口
     public interface onWebViewListener {
         void onProgressChange(WebView view, int newProgress);
-
         void onPageFinish(WebView view);
     }
-
 
 }

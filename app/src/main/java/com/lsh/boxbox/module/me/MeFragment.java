@@ -140,7 +140,6 @@ public class MeFragment extends BaseFragment {
                         getString(R.string.transition_userhead)
                 );
                 ActivityCompat.startActivity(getContext(), intent, optionCompat.toBundle());
-
                 break;
         }
     }
@@ -164,7 +163,6 @@ public class MeFragment extends BaseFragment {
         unbinder.unbind();
         EventBus.getDefault().unregister(this);
         super.onDestroyView();
-
     }
 
     @Override

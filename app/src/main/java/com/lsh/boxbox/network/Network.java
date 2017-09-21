@@ -1,7 +1,9 @@
 package com.lsh.boxbox.network;
 
 
+import com.lsh.boxbox.model.FindBg;
 import com.lsh.boxbox.network.api.CityApi;
+import com.lsh.boxbox.network.api.FindBgApi;
 import com.lsh.boxbox.network.api.NewsApi;
 import com.lsh.boxbox.network.api.WechatApi;
 import com.lsh.boxbox.utils.AppLogMessageMgr;
@@ -24,6 +26,7 @@ public class Network {
     private static WechatApi mWechatApi;
     private static CityApi sCityApi;
     private static NewsApi sNewsApi;
+    private static FindBgApi sFindBgApi;
 
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
@@ -70,5 +73,20 @@ public class Network {
         AppLogMessageMgr.e("getNewsApi");
         return sNewsApi;
     }
+
+    public static FindBgApi getFindBgApi() {
+        if (sFindBgApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl("http://www.bing.com")
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sFindBgApi = retrofit.create(FindBgApi.class);
+        }
+        AppLogMessageMgr.e("getFindBgApi");
+        return sFindBgApi;
+    }
+
 
 }

@@ -32,6 +32,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by LSH on 2017/9/13.
+ *
  */
 
 public class DefaultStyleFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {

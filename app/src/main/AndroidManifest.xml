@@ -57,7 +57,8 @@
         <activity android:name=".module.me.calendar.CalendarActivity" />
         <activity android:name=".module.me.LEDActivity" />
         <activity android:name=".module.me.FlashLightActivity" />
-        <activity android:name=".module.news.news_category.CategoryActivity"></activity>
+        <activity android:name=".module.news.news_category.CategoryActivity" />
+        <activity android:name=".module.find.PinImageActivity"></activity>
     </application>
 
 </manifest>

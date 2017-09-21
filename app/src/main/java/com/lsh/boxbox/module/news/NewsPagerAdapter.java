@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by LSH on 2017/9/13.
+ * 首页新闻业栏目的Fragment适配器
  */
 
 public class NewsPagerAdapter extends FragmentPagerAdapter {

@@ -2,6 +2,7 @@ package com.lsh.boxbox.model;
 
 /**
  * Created by LSH on 2017/9/15.
+ * EventBus
  */
 
 public class RefreshNewsFragmentEvent {
