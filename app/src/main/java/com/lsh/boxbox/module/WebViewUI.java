@@ -63,7 +63,7 @@ public class WebViewUI extends BaseCommonActivity {
                 .setAgentWebParent(mLinearLayout, new LinearLayout.LayoutParams(-1, -1))//
                 .useDefaultIndicator()//
                 .defaultProgressBarColor()
-//                .setReceivedTitleCallback(mCallback)
+                .setReceivedTitleCallback(mCallback)
                 .setWebChromeClient(mWebChromeClient)
                 .setWebViewClient(mWebViewClient)
                 .setSecutityType(AgentWeb.SecurityType.strict)

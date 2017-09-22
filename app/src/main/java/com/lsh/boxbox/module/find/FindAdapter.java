@@ -27,8 +27,7 @@ public class FindAdapter extends BaseItemDraggableAdapter<FunctionBean, BaseView
     @Override
     protected void convert(BaseViewHolder helper, FunctionBean item) {
         helper.setText(R.id.name_item_find, item.getName());
-        ImageView view = helper.getView(R.id.icon_item_find);
-
+        ImageView view = (ImageView)helper.getView(R.id.icon_item_find);
         try {
             int camera = (Integer) R.drawable.class.getField(item.getCode()).get(null);
             view.setImageResource(camera);
