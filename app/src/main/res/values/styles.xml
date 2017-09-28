@@ -10,7 +10,6 @@
     </style>
 
 
-    <style name="AppTheme" parent="RootAppTheme"/>
 
     <style name="toolBar">
         <item name="colorControlNormal">#ffffff</item>
@@ -82,5 +81,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="DrawerHeaderTheme" parent="AppTheme"/>
+
+    <style name="AppTheme" parent="RootAppTheme"/>
 
 </resources>

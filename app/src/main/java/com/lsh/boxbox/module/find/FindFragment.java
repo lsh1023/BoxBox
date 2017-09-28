@@ -10,9 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -35,6 +33,7 @@ import com.lsh.boxbox.model.FindBg;
 import com.lsh.boxbox.model.FunctionBean;
 import com.lsh.boxbox.model.RefreshFindFragmentEvent;
 import com.lsh.boxbox.module.WebViewUI;
+import com.lsh.boxbox.module.find.joke.JokeActivity;
 import com.lsh.boxbox.network.Network;
 import com.lsh.boxbox.utils.AppLogMessageMgr;
 import com.lsh.boxbox.utils.AppToastMgr;
@@ -49,8 +48,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import lib.homhomlib.design.SlidingLayout;
 import rx.Observer;
 import rx.Subscription;
@@ -349,7 +346,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     private void itemActionEvent(String name) {
         switch (name) {
             case "万年历":
-//                startActivity(new Intent(getContext(), ChinaCalendarActivity.class));
+                startActivity(new Intent(getContext(), ChinaCalendarActivity.class));
                 break;
             case "快递查询":
                 Intent intent = new Intent(getContext(), WebViewUI.class);
@@ -395,7 +392,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 notOpen();
                 break;
             case "笑话大全":
-//                startActivity(new Intent(getContext(), JokeActivity.class));
+                startActivity(new Intent(getContext(), JokeActivity.class));
                 break;
             default:
                 break;
@@ -607,6 +604,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.joke_find:
+                startActivity(new Intent(getContext(), JokeActivity.class));
                 break;
             case R.id.star_find:
                 break;

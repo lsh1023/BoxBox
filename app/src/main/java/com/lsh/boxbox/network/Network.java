@@ -7,7 +7,9 @@ import com.lsh.boxbox.network.api.CityApi;
 import com.lsh.boxbox.network.api.ConstellationApi;
 import com.lsh.boxbox.network.api.DayJokeApi;
 import com.lsh.boxbox.network.api.FindBgApi;
+import com.lsh.boxbox.network.api.ImgJokeApi;
 import com.lsh.boxbox.network.api.NewsApi;
+import com.lsh.boxbox.network.api.TextJokeApi;
 import com.lsh.boxbox.network.api.WechatApi;
 import com.lsh.boxbox.utils.AppLogMessageMgr;
 
@@ -34,6 +36,11 @@ public class Network {
     private static ConstellationApi sConstellationApi;
     private static ChinaCalendarApi sChinaCalendarApi;
     private static DayJokeApi sDayJokeApi;
+
+    private static TextJokeApi sTextJokeApi;
+    private static TextJokeApi sRandomTextJokeApi;
+    private static ImgJokeApi sRandomImgJokeApi;
+    private static ImgJokeApi sNewImgJokeApi;
 
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
@@ -132,6 +139,59 @@ public class Network {
             sDayJokeApi = retrofit.create(DayJokeApi.class);
         }
         return sDayJokeApi;
+    }
+
+    public static TextJokeApi getNewTextJokeApi() {
+        if (sTextJokeApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl("http://japi.juhe.cn/")
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sTextJokeApi = retrofit.create(TextJokeApi.class);
+        }
+        return sTextJokeApi;
+    }
+
+    public static TextJokeApi getRandomTextJokeApi() {
+        if (sRandomTextJokeApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl("http://v.juhe.cn/")
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sRandomTextJokeApi = retrofit.create(TextJokeApi.class);
+        }
+        return sRandomTextJokeApi;
+
+    }
+
+    public static ImgJokeApi getRandomImgJokeApi() {
+        if (sRandomImgJokeApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl("http://v.juhe.cn/")
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sRandomImgJokeApi = retrofit.create(ImgJokeApi.class);
+        }
+        return sRandomImgJokeApi;
+    }
+
+    public static ImgJokeApi getNewImgJokeApi() {
+        if (sNewImgJokeApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
+                    .baseUrl("http://japi.juhe.cn/")
+                    .addConverterFactory(gsonConverterFactory)
+                    .addCallAdapterFactory(rxJavaCallAdapterFactory)
+                    .build();
+            sNewImgJokeApi = retrofit.create(ImgJokeApi.class);
+        }
+        return sNewImgJokeApi;
     }
 
 }

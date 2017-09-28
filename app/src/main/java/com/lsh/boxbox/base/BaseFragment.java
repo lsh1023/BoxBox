@@ -175,4 +175,6 @@ public abstract class BaseFragment extends Fragment implements IBaseView {
         MobclickAgent.onPageEnd(getUmengFragmentName());
     }
     public abstract String getUmengFragmentName();
+
+
 }

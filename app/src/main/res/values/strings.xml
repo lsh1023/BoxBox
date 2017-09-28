@@ -32,4 +32,10 @@
     <string name="other_channel">更多频道</string>
     <string name="set_success">设置成功</string>
     <string name="transition_pinchimageview">transition_pinchimageview</string>
+
+    <string name="title_activity_china_calendar">老黄历</string>
+    <string name="loading_more_happy">加载更多快乐</string>
+    <string name="action_new">最新笑话</string>
+    <string name="action_random">随机笑话</string>
+    <string name="title_activity_joke">笑话大全</string>
 </resources>

@@ -61,6 +61,19 @@
         <activity android:name=".module.find.PinImageActivity"/>
         <activity android:name=".module.find.FindMoreActivity">
         </activity>
+        <activity
+            android:name=".module.find.ChinaCalendarActivity"
+            android:label="@string/title_activity_china_calendar"
+            android:screenOrientation="portrait"
+            android:theme="@style/DrawerHeaderTheme">
+        </activity>
+        <activity
+            android:name=".module.find.joke.JokeActivity"
+            android:label="@string/title_activity_joke"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            >
+        </activity>
     </application>
 
 </manifest>
