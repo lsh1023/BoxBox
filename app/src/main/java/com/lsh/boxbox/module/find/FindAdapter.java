@@ -15,7 +15,6 @@ import java.util.List;
 
 public class FindAdapter extends BaseItemDraggableAdapter<FunctionBean, BaseViewHolder> {
 
-
     public FindAdapter(List<FunctionBean> data) {
         super(R.layout.item_find, data);
     }
@@ -27,13 +26,14 @@ public class FindAdapter extends BaseItemDraggableAdapter<FunctionBean, BaseView
     @Override
     protected void convert(BaseViewHolder helper, FunctionBean item) {
         helper.setText(R.id.name_item_find, item.getName());
-        ImageView view = (ImageView)helper.getView(R.id.icon_item_find);
+        ImageView view = (ImageView) helper.getView(R.id.icon_item_find);
         try {
             int camera = (Integer) R.drawable.class.getField(item.getCode()).get(null);
             view.setImageResource(camera);
-        } catch (IllegalAccessException | NoSuchFieldException e) {
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -297,6 +297,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initRecy() {
+
         mFindList = initData();
         mRecycleFind.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
@@ -322,10 +323,9 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
             public void onItemDragEnd(RecyclerView.ViewHolder viewHolder, int pos) {
                 FunctionDao functionDao1 = new FunctionDao(getContext().getApplicationContext());
                 List<FunctionBean> data = mFindAdapter.getData();
-
                 for (int i = 0; i < data.size(); i++) {
                     FunctionBean functionBean = data.get(i);
-                    if (functionBean.getId() == i) {
+                    if (functionBean.getId() != i) {
                         functionBean.setId(i);
                         functionDao1.updateFunctionBean(functionBean);
                     }
